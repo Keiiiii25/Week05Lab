@@ -24,8 +24,8 @@ public class LoginServlet extends HttpServlet {
         String logout = request.getParameter("logout");
         
         if (logout != null) {
-            request.setAttribute("logOutMessage", "You have successfully logged out.");
             session.invalidate();
+            request.setAttribute("message", "You have successfully logged out.");
         } else {
             if (session.getAttribute("username") != null) {
                 response.sendRedirect("home");
